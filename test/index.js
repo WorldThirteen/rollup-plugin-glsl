@@ -39,6 +39,9 @@ describe('compressFunction', () => {
 	it('should work with multiline comments', () => {
 		assert.equal(compressShader('uniform/* c */ float f;'), 'uniform float f;');
 	});
+	it('should work with multiline comments', () => {
+		assert.equal(compressShader('/** a\n * b \n */ uniform/* c */ float f;'), 'uniform float f;');
+	});
 	it('should work with line comments containing \\\\\\r\\n', () => {
 		assert.equal(compressShader('uniform float f;//\\\r\ngarbage'), 'uniform float f;');
 	});
